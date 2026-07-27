@@ -1,0 +1,92 @@
+generated: '2026-07-26'
+method: searched
+source: live probe of /.well-known/ on every Nesto host
+note: >-
+  Probed the full /.well-known/ discovery surface on www.nesto.ca, nestocloud.ca,
+  nestogroup.ca, app.nesto.ca and api.nesto.ca. Only www.nesto.ca publishes anything:
+  an RFC 9116 security.txt and the PGP key it references. There is no OIDC discovery
+  document, no RFC 8414 authorization-server metadata, no RFC 9727 api-catalog, and no
+  ai-plugin.json anywhere in the estate.
+hosts:
+- host: https://www.nesto.ca
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: nesto-security.txt
+    standard: RFC 9116
+  - path: /.well-known/pgp-key.txt
+    status: 200
+    file: nesto-pgp-key.txt
+    standard: OpenPGP public key (referenced by security.txt Encryption:)
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://nestocloud.ca
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://nestogroup.ca
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://app.nesto.ca
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+- host: https://api.nesto.ca
+  note: >-
+    Live API host (Google Cloud, 34.49.172.142). Returns a plain-text `404 page not found`
+    with X-Request-ID / X-Tracing-ID / HSTS / X-Robots-Tag:noindex headers on every path
+    probed, including the /.well-known/ surface. The host is real and running; no path
+    is anonymously reachable and none is documented.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+security_txt:
+  file: nesto-security.txt
+  canonical: https://www.nesto.ca/.well-known/security.txt
+  contact:
+  - mailto:support@nesto.ca
+  - https://www.nesto.ca/contact/
+  policy: https://www.nesto.ca/contact/
+  encryption: https://www.nesto.ca/.well-known/pgp-key.txt
+  preferred_languages: [en, fr]
+  expires: null
+  scope:
+  - '*.nesto.ca'
+  - Web applications, APIs, and customer-facing services
+  note: >-
+    The disclosure scope explicitly names "Web applications, APIs, and customer-facing
+    services" — first-party confirmation that APIs exist, while none are documented for
+    outside developers. security.txt carries no `Expires:` field, which RFC 9116 requires.

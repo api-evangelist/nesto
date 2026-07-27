@@ -49,6 +49,25 @@ Not published. `https://nesto.ca/.well-known/openid-configuration` returned 404.
 
 None published — the absence is itself the finding for a vendor selling an API-integrated lending platform.
 
+## Security and Compliance
+
+Published and third-party audited, in sharp contrast to the API surface. `https://www.nesto.ca/security/` names **SOC 1 Type II**, **SOC 2 Type II**, and **ISO 27001:2022**, with TLS 1.2+ in transit, AES-256 at rest, static analysis, manual code review, and yearly penetration testing on Google Cloud infrastructure. A Vanta trust center is live at `app.vanta.com/nesto.ca/trust/edzpx9i0szdy5sgukfq0w`. Vulnerability reports go to `security@nesto.ca`; there is no bug bounty — "we do not offer compensation for vulnerability disclosures." The `security.txt` is real and hand-written but carries no RFC 9116 `Expires:` field. DNSSEC is signed and DMARC is `p=reject` on nesto.ca; no CAA records exist on any domain.
+
+## Open Source
+
+Nesto's GitHub organization, [`nestoca`](https://github.com/nestoca), has 19 actively maintained public repositories — all internal developer-platform tooling under MIT, none of it an API client. The flagship is [`joy`](https://github.com/nestoca/joy), a GitOps CLI for Kubernetes deployments and promotions (v0.97.0, installable via `brew install nestoca/public/joy`), alongside `joy-operator`, `joy-generator`, `jen-cli` (microservice scaffolding), `jac`, `canonyze`, and `public-actions`. Every repo was searched for OpenAPI, AsyncAPI, `.proto`, GraphQL, `AGENTS.md`, and `llms.txt` — zero hits. Catalogued in [packages/](packages/nesto-packages.yml) and [cli/](cli/nesto-cli.yml); deliberately **not** wired as `SDKs` or `CLI`, because neither can call a Nesto service.
+
+## Artifacts
+
+- [well-known/](well-known/nesto-well-known.yml) — discovery index across five hosts; raw [security.txt](well-known/nesto-security.txt) and [PGP key](well-known/nesto-pgp-key.txt)
+- [security/](security/) — [domain security](security/nesto-domain-security.yml), [trust center](security/nesto-trust-center.yml), [vulnerability disclosure](security/nesto-vulnerability-disclosure.yml)
+- [conformance/](conformance/nesto-conformance.yml) — standards conformance, including the API-shaped standards asserted false on probed evidence
+- [lifecycle/](lifecycle/nesto-lifecycle.yml) — evidence of absence: no versioning, deprecation, SLA, status page, or changelog
+- [packages/](packages/nesto-packages.yml) and [cli/](cli/nesto-cli.yml) — first-party open source
+- [llms/](llms/nesto-llms.txt) — generated llms.txt
+
+No `openapi/`, `asyncapi/`, `graphql/`, `mcp/`, `skills/`, `scopes/`, `authentication/`, `errors/`, `conventions/`, `sandbox/`, or `arazzo/` directory exists. Each would require inventing an interface Nesto does not publish.
+
 ## Common Properties
 
 - [Website](https://www.nesto.ca/)
@@ -58,11 +77,21 @@ None published — the absence is itself the finding for a vendor selling an API
 - [Blog](https://www.nesto.ca/advice/)
 - [Blog RSS](https://www.nesto.ca/feed/)
 - [Blog RSS — Nesto Cloud](https://nestocloud.ca/feed/)
-- [Security — security.txt](https://www.nesto.ca/.well-known/security.txt)
+- [Security](https://www.nesto.ca/security/)
+- [security.txt](well-known/nesto-security.txt)
+- [Trust Center (Vanta)](https://app.vanta.com/nesto.ca/trust/edzpx9i0szdy5sgukfq0w)
+- [Compliance — SOC 1/SOC 2/ISO 27001](https://www.nesto.ca/security/)
+- [GitHub Organization](https://github.com/nestoca)
+- [Terms of Services](https://www.nesto.ca/terms-of-services/)
 - [Privacy Policy](https://www.nesto.ca/privacy-policy/)
+- [Privacy Policy — Nesto Cloud](https://nestocloud.ca/privacy-policy/)
 - [Support](https://www.nesto.ca/contact/)
+- [Support — Nesto Cloud](https://nestocloud.ca/contact/)
+- [FAQ](https://www.nesto.ca/faq/)
 - [Careers](https://www.nesto.ca/careers/)
 - [Login](https://app.nesto.ca/)
+- [Affiliate program](https://www.nesto.ca/affiliate-program/)
+- [Trusted partners](https://www.nesto.ca/financial-advisor/trusted-partners/)
 
 ## Maintainers
 

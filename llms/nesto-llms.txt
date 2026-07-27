@@ -1,0 +1,82 @@
+# Nesto
+
+> Nesto Inc. is a Montreal-headquartered Canadian digital mortgage lender and mortgage
+> technology provider, founded in 2018. It originates, underwrites and services mortgages
+> direct-to-consumer at nesto.ca, and after its 2024 acquisition of CMLS Group administers
+> roughly CA$73 billion in residential and commercial mortgage assets. Its Nesto Cloud arm
+> sells the same origination, underwriting and servicing platform to banks, credit unions
+> and commercial lenders as SaaS or fully outsourced BPO.
+
+## API availability
+
+Nesto publishes **no public API**. There is no developer portal, no API reference, no
+OpenAPI/AsyncAPI/GraphQL/MCP contract, no SDK, no Postman collection, no sandbox, and no
+self-serve signup. Nesto Cloud markets "seamless API integrations with your existing
+systems and third-party providers" as a platform capability, but that integration surface
+sits entirely behind a negotiated commercial engagement with the Nesto Cloud team.
+
+APIs demonstrably exist: the company's own security.txt names "Web applications, APIs, and
+customer-facing services" in its disclosure scope, and `api.nesto.ca` is a live host
+(Google Cloud) that answers every probed path with a plain-text `404 page not found`
+carrying `X-Request-ID`, `X-Tracing-ID`, HSTS and `X-Robots-Tag: noindex`. Nothing on it is
+anonymously reachable or documented.
+
+Access model: commercial, partner-only. Entry points are a "book a demo" form,
+info@nestocloud.ca and 1.866.297.7407.
+
+Sector posture: Nesto is a lender, not a listings platform, so it sits outside RESO and
+outside CREA's Data Distribution Facility entirely. No RESO Web API or Data Dictionary
+certification, no OData $metadata, no UPI usage.
+
+## Company
+
+- [nesto.ca](https://www.nesto.ca/): consumer digital mortgage lender
+- [Nesto Cloud](https://nestocloud.ca/): B2B lending platform sold as SaaS or BPO
+- [Nesto Group](https://nestogroup.ca/): group holding entity
+- [About](https://www.nesto.ca/about-us/)
+- [Contact](https://www.nesto.ca/contact/)
+- [Careers](https://www.nesto.ca/careers/)
+- [Login (consumer mortgage application)](https://app.nesto.ca/)
+
+## Security and compliance
+
+- [Security](https://www.nesto.ca/security/): SOC 1 Type II, SOC 2 Type II, ISO 27001:2022; TLS 1.2+ in transit, AES-256 at rest; yearly penetration testing
+- [Trust Center (Vanta)](https://app.vanta.com/nesto.ca/trust/edzpx9i0szdy5sgukfq0w)
+- [security.txt](https://www.nesto.ca/.well-known/security.txt) (RFC 9116; no Expires field)
+- [PGP key](https://www.nesto.ca/.well-known/pgp-key.txt)
+- Vulnerability reports: security@nesto.ca. No bug bounty — "we do not offer compensation for vulnerability disclosures."
+
+## Legal
+
+- [Terms of Services](https://www.nesto.ca/terms-of-services/)
+- [Privacy Policy](https://www.nesto.ca/privacy-policy/)
+- [Nesto Cloud Privacy Policy](https://nestocloud.ca/privacy-policy/)
+
+## Open source
+
+Nesto's GitHub org ships developer-platform tooling, not API clients:
+
+- [github.com/nestoca](https://github.com/nestoca): 19 public repositories
+- [joy](https://github.com/nestoca/joy): GitOps CLI for Kubernetes deployments and promotions (`brew install nestoca/public/joy`)
+- [jen-cli](https://github.com/nestoca/jen-cli): microservice scaffolding CLI
+- [homebrew-public](https://github.com/nestoca/homebrew-public): Homebrew tap
+- [public-actions](https://github.com/nestoca/public-actions): public GitHub Actions
+
+## Content
+
+- [Advice blog](https://www.nesto.ca/advice/) ([RSS](https://www.nesto.ca/feed/))
+- [Nesto Cloud feed](https://nestocloud.ca/feed/)
+- [Mortgage rates](https://www.nesto.ca/mortgage-rates/) — rendered as web pages, not offered as a data product
+- [FAQ](https://www.nesto.ca/faq/)
+
+## API Evangelist artifacts
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/nesto/refs/heads/main/apis.yml)
+- [well-known index](https://raw.githubusercontent.com/api-evangelist/nesto/refs/heads/main/well-known/nesto-well-known.yml)
+- [conformance](https://raw.githubusercontent.com/api-evangelist/nesto/refs/heads/main/conformance/nesto-conformance.yml)
+- [domain security](https://raw.githubusercontent.com/api-evangelist/nesto/refs/heads/main/security/nesto-domain-security.yml)
+- [trust center](https://raw.githubusercontent.com/api-evangelist/nesto/refs/heads/main/security/nesto-trust-center.yml)
+- [vulnerability disclosure](https://raw.githubusercontent.com/api-evangelist/nesto/refs/heads/main/security/nesto-vulnerability-disclosure.yml)
+- [packages](https://raw.githubusercontent.com/api-evangelist/nesto/refs/heads/main/packages/nesto-packages.yml)
+- [lifecycle](https://raw.githubusercontent.com/api-evangelist/nesto/refs/heads/main/lifecycle/nesto-lifecycle.yml)
+- [cli](https://raw.githubusercontent.com/api-evangelist/nesto/refs/heads/main/cli/nesto-cli.yml)

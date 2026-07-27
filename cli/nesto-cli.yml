@@ -1,0 +1,60 @@
+generated: '2026-07-26'
+method: searched
+source: https://github.com/nestoca
+scope_note: >-
+  Nesto ships NO CLI for any Nesto API — there is no Nesto API to drive. It does publish
+  first-party open-source command-line tools for its own internal platform engineering,
+  released under MIT on github.com/nestoca with a Homebrew tap. They are catalogued here
+  because they are real, maintained, first-party developer tooling and the only
+  installable Nesto software a developer can run. No `type: CLI` pointer is wired in
+  apis.yml: the apis.io `cli_present` check measures whether an API has a command-line
+  client, and these tools cannot call a Nesto service on a consumer's behalf.
+api_cli:
+  exists: false
+clis:
+- name: joy
+  purpose: GitOps CLI for managing and deploying applications across Kubernetes environments
+  repo: https://github.com/nestoca/joy
+  module: github.com/nestoca/joy
+  language: go
+  license: MIT
+  version: v0.97.0
+  released: '2026-07-24'
+  stars: 10
+  official: true
+  install:
+  - method: homebrew
+    command: brew install nestoca/public/joy
+    tap: https://github.com/nestoca/homebrew-public
+  - method: go
+    command: go install github.com/nestoca/joy@latest
+  companions:
+  - {name: joy-operator, repo: https://github.com/nestoca/joy-operator, role: Kubernetes operator}
+  - {name: joy-generator, repo: https://github.com/nestoca/joy-generator, role: manifest generator}
+  - {name: joy-catalog-example, repo: https://github.com/nestoca/joy-catalog-example, role: example catalog repo, archived: true}
+- name: jen
+  purpose: >-
+    Scaffolds new microservices from Go templates, onboards them with CI/CD and infra,
+    and augments them with DevOps scripts for their lifetime
+  repo: https://github.com/nestoca/jen-cli
+  module: github.com/silphid/jen
+  language: go
+  official: true
+  install:
+  - {method: go, command: go install github.com/silphid/jen@latest}
+- name: jac
+  purpose: GitOps CLI and YAML format for managing and querying people metadata
+  repo: https://github.com/nestoca/jac
+  module: github.com/nestoca/jac
+  language: go
+  official: true
+  archived: true
+- name: canonyze
+  purpose: Standardizes a set of YAML documents into a canonical form suitable for comparison
+  repo: https://github.com/nestoca/canonyze
+  module: github.com/nestoca/canonyze
+  language: go
+  official: true
+  archived: true
+  install:
+  - {method: homebrew, command: brew install nestoca/canonyze/canonyze, tap: https://github.com/nestoca/homebrew-canonyze}

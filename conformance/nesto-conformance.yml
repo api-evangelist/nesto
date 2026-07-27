@@ -1,0 +1,93 @@
+generated: '2026-07-26'
+method: searched
+source: live probes + first-party security/compliance pages
+note: >-
+  Nesto has no publicly documented API and no machine-readable contract, so every
+  API-shaped standard below is asserted false on evidence of absence (probed, not assumed).
+  What it does conform to sits on the security/compliance axis, where the posture is
+  genuinely strong and third-party audited.
+standards:
+- id: openapi
+  conforms: false
+  evidence: >-
+    /openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json, /api-docs, /docs,
+    /redoc all return 404 on www.nesto.ca, nestocloud.ca, nestogroup.ca, app.nesto.ca and
+    api.nesto.ca
+- id: asyncapi
+  conforms: false
+  evidence: /asyncapi.yaml returns 404 on every host; no webhook or event catalogue published
+- id: graphql
+  conforms: false
+  evidence: >-
+    /graphql returns 404 on every Nesto host. A third-party portfolio write-up describes a
+    GraphQL layer on the internal partner rates API, but no endpoint is anonymously reachable
+- id: mcp
+  conforms: false
+  evidence: no MCP server published; no /.well-known/ MCP or ai-plugin descriptor
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: https://www.nesto.ca/.well-known/security.txt (HTTP 200)
+  partial: true
+  gap: no `Expires:` field, which RFC 9116 mandates
+- id: openpgp-encryption-key
+  conforms: true
+  evidence: https://www.nesto.ca/.well-known/pgp-key.txt (HTTP 200), referenced by security.txt
+- id: rfc9727-api-catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returns 404 on every host
+- id: oauth2
+  conforms: false
+  evidence: /.well-known/oauth-authorization-server returns 404 on every host; no OAuth documented
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every host including app.nesto.ca
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no spec and no anonymously reachable API responses to inspect
+- id: reso-web-api
+  conforms: false
+  evidence: >-
+    Nesto is a mortgage lender, not an MLS/listings platform; no RESO Web API certification,
+    Data Dictionary certification, OData $metadata endpoint or UPI reference exists on any
+    Nesto property (see review.yml sectorPosture.resoPosture)
+- id: crea-ddf
+  conforms: false
+  evidence: no Canadian Real Estate Association Data Distribution Facility participation published
+- id: fdx
+  conforms: false
+  evidence: >-
+    no Financial Data Exchange participation published; Canada's consumer-driven banking
+    framework is not yet in force and Nesto publishes no open-banking surface
+- id: soc1-type-ii
+  conforms: true
+  evidence: https://www.nesto.ca/security/ — "report on internal controls over financial reporting"
+- id: soc2-type-ii
+  conforms: true
+  evidence: >-
+    https://www.nesto.ca/security/ — "report covering security, availability and
+    confidentiality"; restated on https://nestocloud.ca/solutions/
+- id: iso-27001-2022
+  conforms: true
+  evidence: https://www.nesto.ca/security/ — "ISO 27001:2022 Information security and risk management compliance"
+- id: pci-dss
+  conforms: false
+  evidence: not named on any Nesto page
+- id: dnssec
+  conforms: true
+  evidence: security/nesto-domain-security.yml — DNSSEC signed on nesto.ca and nestocloud.ca
+- id: dmarc
+  conforms: true
+  evidence: security/nesto-domain-security.yml — p=reject on nesto.ca, p=quarantine on nestocloud.ca
+- id: caa
+  conforms: false
+  evidence: security/nesto-domain-security.yml — no CAA records on nesto.ca or nestocloud.ca
+- id: hsts
+  conforms: partial
+  evidence: >-
+    www.nesto.ca and api.nesto.ca send Strict-Transport-Security; nestocloud.ca and
+    nestogroup.ca do not
+compliance_program:
+  published: true
+  url: https://www.nesto.ca/security/
+  trust_center: https://app.vanta.com/nesto.ca/trust/edzpx9i0szdy5sgukfq0w
+  certifications: [SOC 1 Type II, SOC 2 Type II, ISO/IEC 27001:2022]

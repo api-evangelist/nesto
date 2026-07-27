@@ -1,0 +1,44 @@
+generated: '2026-07-26'
+method: searched
+source: probes of status/changelog/deprecation surfaces across all Nesto hosts
+note: >-
+  Recorded as evidence of absence. Nesto publishes no API lifecycle surface of any kind:
+  no versioning policy, no deprecation policy, no Sunset/Deprecation header contract, no
+  SLA, no status page, no changelog. This is consistent with a partner-only integration
+  model where the lifecycle contract lives inside a negotiated commercial agreement.
+versioning:
+  scheme: null
+  current: null
+  docs: null
+  published: false
+deprecation:
+  policy_url: null
+  sunset_header: null
+  published: false
+sla:
+  url: null
+  uptime_target: null
+  published: false
+  note: >-
+    Nesto Cloud markets "SOC 2 Type II compliance for enterprise-grade security and
+    reliability" but publishes no uptime target or credit schedule.
+status_page:
+  url: null
+  published: false
+  probed:
+  - {host: status.nesto.ca, result: NXDOMAIN}
+  - {host: status.nestocloud.ca, result: NXDOMAIN}
+changelog:
+  url: null
+  published: false
+  note: >-
+    No API or product changelog. The only dated release stream Nesto publishes is on its
+    open-source developer-platform repos (github.com/nestoca/joy CHANGELOG.md, releases
+    through v0.97.0 on 2026-07-24) — those version an internal GitOps CLI, not an API.
+deprecated_operations: []
+open_source_release_streams:
+- repo: https://github.com/nestoca/joy
+  changelog: https://github.com/nestoca/joy/blob/master/CHANGELOG.md
+  latest: v0.97.0
+  latest_date: '2026-07-24'
+  scope: developer-platform CLI, not an API

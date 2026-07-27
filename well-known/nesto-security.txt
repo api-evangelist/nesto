@@ -1,0 +1,27 @@
+# Security Policy for nesto.ca
+# We take security seriously, but we still believe in being human.
+
+Contact: mailto:support@nesto.ca
+Contact: https://www.nesto.ca/contact/
+
+Encryption: https://www.nesto.ca/.well-known/pgp-key.txt
+Preferred-Languages: en, fr
+Canonical: https://www.nesto.ca/.well-known/security.txt
+
+Policy: https://www.nesto.ca/contact/
+Hiring: https://www.nesto.ca/careers
+
+Acknowledgments:
+If you responsibly disclose a security issue, we truly appreciate it.
+We might not send you a bounty, but we *will* send gratitude, respect, and fast fixes.
+
+Scope:
+- Domains: *.nesto.ca
+- Web applications, APIs, and customer-facing services
+
+Disclosure:
+Please report vulnerabilities privately and give us a reasonable time to investigate before public disclosure.
+No drama, no blame — just better security together.
+
+Thanks for helping keep nesto safe and secure.
+We like coffee, clean code, and responsible hackers.

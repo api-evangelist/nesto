@@ -321,3 +321,131 @@ actions:
     Nothing real was found to save. No OpenAPI, no AsyncAPI, no OData $metadata,
     no GraphQL schema, no Postman collection. The openapi/ directory is omitted
     rather than created empty, per the no-fabrication rule.
+
+enrichment:
+  round: '2026-07-26'
+  method: contract discovery + registry search + live probes
+  summary: |
+    A second, harder contract-discovery pass confirmed the round-one conclusion and
+    added four genuinely new first-party finds that round one missed: the nestoca
+    GitHub organization (19 public repos of MIT-licensed developer-platform tooling),
+    the first-party security page at nesto.ca/security/ with three named third-party
+    audits, a live Vanta trust center, and the Terms of Services page.
+  contractDiscovery:
+    date: '2026-07-26'
+    hostsProbed:
+    - www.nesto.ca
+    - nestocloud.ca
+    - nestogroup.ca
+    - app.nesto.ca
+    - api.nesto.ca
+    pathsPerHost:
+    - /openapi.json
+    - /openapi.yaml
+    - /swagger.json
+    - /v1/openapi.json
+    - /api-docs
+    - /docs
+    - /redoc
+    - /graphql
+    - /llms.txt
+    - /asyncapi.yaml
+    - /.well-known/security.txt
+    - /.well-known/openid-configuration
+    - /.well-known/oauth-authorization-server
+    - /.well-known/api-catalog
+    - /.well-known/ai-plugin.json
+    result: |
+      75 probes. Exactly two 200s, both on www.nesto.ca: security.txt and the PGP key
+      it references. Everything else 404. No REST spec at any API host root, no GraphQL
+      endpoint to introspect, no MCP server to call tools/list against, no AsyncAPI, no
+      llms.txt. The "hunt harder before concluding no spec" pass is exhausted: Nesto
+      genuinely publishes no machine-readable contract.
+    apiHostFingerprint:
+      host: api.nesto.ca
+      dns: 34.49.172.142 (Google Cloud)
+      rootStatus: 404
+      body: '404 page not found'
+      headers:
+      - 'content-type: text/plain; charset=utf-8'
+      - 'x-request-id (and access-control-expose-headers: X-Request-ID)'
+      - x-tracing-id
+      - 'strict-transport-security: max-age=63072000; includeSubDomains'
+      - 'x-robots-tag: noindex, nofollow'
+      - 'via: 1.1 google'
+      - 'alt-svc: h3'
+      note: |
+        The 404 body and header set are a Go net/http default served behind a Google
+        Cloud load balancer with request-id and distributed-tracing headers wired up.
+        This is a production API gateway that is running and instrumented, deliberately
+        de-indexed, with every route authenticated or unrouted anonymously. Still NOT
+        recorded as a baseURL: a live host with no documented, reachable operation is
+        not a public API.
+  newFirstPartyFinds:
+  - kind: GitHubOrganization
+    url: https://github.com/nestoca
+    detail: |
+      19 public repositories, actively maintained (pushes within days of this review).
+      Contents are internal platform engineering, not API clients: joy (GitOps CLI for
+      Kubernetes deployments/promotions, v0.97.0, 10 stars, MIT), joy-operator,
+      joy-generator, jen-cli (microservice scaffolding), jac (people-metadata GitOps),
+      canonyze (YAML canonicalization), public-actions (GitHub Actions), and a Homebrew
+      tap (homebrew-public) shipping `brew install nestoca/public/joy`. Every repo was
+      searched for openapi/swagger/asyncapi/.proto/graphql/AGENTS.md/llms.txt — zero hits.
+      Captured in packages/nesto-packages.yml and cli/nesto-cli.yml with an explicit
+      scope note that these are NOT SDKs or an API CLI; no SDKs or CLI pointer is wired.
+  - kind: SecurityPolicy
+    url: https://www.nesto.ca/security/
+    detail: |
+      Round one never found this page. It names three third-party audits — SOC 1 Type II,
+      SOC 2 Type II and ISO 27001:2022 — plus TLS 1.2+ in transit, AES-256 at rest,
+      static analysis, manual code review, yearly penetration testing, and GCP hosting.
+      It routes vulnerability reports to security@nesto.ca and states plainly: "we do not
+      offer compensation for vulnerability disclosures."
+  - kind: TrustCenter
+    url: https://app.vanta.com/nesto.ca/trust/edzpx9i0szdy5sgukfq0w
+    detail: |
+      Vanta-hosted trust center, HTTP 200 but client-side rendered, so the document and
+      control lists are not anonymously readable. Certification names in
+      security/nesto-trust-center.yml are taken from the first-party nesto.ca/security/
+      page rather than from the SPA.
+  - kind: TermsOfService
+    url: https://www.nesto.ca/terms-of-services/
+    detail: Consumer terms of service, HTTP 200. Round one recorded no terms link.
+  thirdPartyCorroboration:
+  - url: https://otavianopires.com/projects/nesto-mortgage-rates-api
+    kind: contractor portfolio write-up (third-party, not first-party)
+    claim: |
+      Describes a "nesto Mortgage Rates API" built on Laravel/PHP + MySQL with JWT auth
+      and a GraphQL layer, scraping and storing daily Canadian mortgage rate history, and
+      exposing "custom endpoints with restricted access designed specifically for
+      authorized partners". Consumers named: internal nesto tools, external partner
+      integrations, and embedded React rate-table widgets on nesto and client sites.
+    treatment: |
+      Recorded as corroboration only. It is a third-party account of an internal system,
+      with no endpoint, no schema and no documentation reachable anonymously. Nothing from
+      it is entered as a Nesto API, baseURL, auth scheme or operation.
+  artifactsNotEmitted:
+    reason: no machine-readable contract exists to ground them in
+    types:
+    - openapi
+    - asyncapi
+    - graphql
+    - mcp
+    - tool-crosswalk
+    - skills
+    - overlays
+    - errors
+    - scopes
+    - authentication
+    - conventions
+    - sandbox
+    - data-model
+    - decline-codes
+    - components
+    - changelog
+    - agentic-access
+    - arazzo
+    note: |
+      Skipping these is the correct outcome, not a shortfall. Every one of them would
+      require inventing an interface Nesto does not publish.

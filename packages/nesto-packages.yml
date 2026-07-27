@@ -1,0 +1,106 @@
+generated: '2026-07-26'
+method: searched
+source: https://github.com/nestoca
+scope_note: >-
+  IMPORTANT — none of these are client libraries for a Nesto API. Nesto (GitHub org
+  `nestoca`, 19 public repos) publishes no SDK for its mortgage, origination, underwriting,
+  servicing or rates surfaces, because none of those surfaces is publicly documented.
+  What the org does publish is a genuine, actively maintained set of first-party
+  open-source DEVELOPER-PLATFORM tools — GitOps/Kubernetes deployment and scaffolding CLIs
+  built for Nesto's own microservice estate and released publicly under MIT. They are
+  catalogued here because they are real first-party packages, and because they are the only
+  machine-consumable software Nesto ships. Registries probed with no first-party hit: npm
+  (the `nesto` package on npm belongs to an unrelated author, `neilveil`), PyPI, Maven
+  Central, NuGet, RubyGems (outside the org's own Homebrew tap), Packagist, crates.io.
+api_client_libraries: []
+packages:
+- language: go
+  registry: pkg.go.dev
+  name: github.com/nestoca/joy
+  url: https://pkg.go.dev/github.com/nestoca/joy
+  repo: https://github.com/nestoca/joy
+  install: go install github.com/nestoca/joy@latest
+  description: GitOps CLI tool for simplifying Kubernetes deployments and promotions across multiple environments
+  version: v0.97.0
+  license: MIT
+  official: true
+  api_client: false
+  category: developer-platform
+- language: ruby
+  registry: homebrew
+  name: nestoca/public/joy
+  url: https://github.com/nestoca/homebrew-public
+  install: brew install nestoca/public/joy
+  description: Homebrew tap for nesto tools; ships the `joy` formula (GoReleaser-generated)
+  version: 0.97.0
+  license: MIT
+  official: true
+  api_client: false
+  category: developer-platform
+- language: go
+  registry: github
+  name: nestoca/jen-cli
+  url: https://github.com/nestoca/jen-cli
+  repo: https://github.com/nestoca/jen-cli
+  module: github.com/silphid/jen
+  description: >-
+    Jen is a CLI tool for scaffolding new microservices based on Go templates, onboarding
+    them with your CI/CD and infra, and augmenting them with your DevOps scripts
+  license: MIT
+  official: true
+  api_client: false
+  category: developer-platform
+- language: go
+  registry: pkg.go.dev
+  name: github.com/nestoca/jac
+  url: https://pkg.go.dev/github.com/nestoca/jac
+  repo: https://github.com/nestoca/jac
+  description: GitOps CLI tool and YAML file format for managing and querying people metadata
+  license: MIT
+  official: true
+  api_client: false
+  archived: true
+  category: developer-platform
+- language: go
+  registry: pkg.go.dev
+  name: github.com/nestoca/canonyze
+  url: https://pkg.go.dev/github.com/nestoca/canonyze
+  repo: https://github.com/nestoca/canonyze
+  description: CLI for standardizing a set of YAML documents into a canonical form suitable for comparison
+  license: MIT
+  official: true
+  api_client: false
+  archived: true
+  category: developer-platform
+- language: go
+  registry: github
+  name: nestoca/joy-operator
+  url: https://github.com/nestoca/joy-operator
+  repo: https://github.com/nestoca/joy-operator
+  module: github.com/nestoca/joy-operator
+  description: Kubernetes operator companion to joy
+  official: true
+  api_client: false
+  category: developer-platform
+- language: go
+  registry: github
+  name: nestoca/joy-generator
+  url: https://github.com/nestoca/joy-generator
+  repo: https://github.com/nestoca/joy-generator
+  module: github.com/nestoca/joy-generator
+  description: Manifest generator companion to joy
+  official: true
+  api_client: false
+  category: developer-platform
+- language: typescript
+  registry: github
+  name: nestoca/public-actions
+  url: https://github.com/nestoca/public-actions
+  description: Public GitHub Actions published by Nesto
+  official: true
+  api_client: false
+  category: ci-cd
+sdk_pointer_withheld: >-
+  No `type: SDKs` pointer is wired in apis.yml. The apis.io `sdk_count` check measures API
+  client libraries; Nesto ships none. Claiming these DevOps CLIs as SDKs would inflate the
+  score for something that cannot call a Nesto API.
