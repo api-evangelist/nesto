@@ -2,6 +2,27 @@
   "repo": "nesto",
   "feeds": [
     {
+      "source": "https://www.nesto.ca/fr/about-us/feed/",
+      "feed_url": "https://www.nesto.ca/fr/about-us/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.nesto.ca/fr/conseils/feed/",
+      "feed_url": "https://www.nesto.ca/fr/conseils/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.nesto.ca/feed/",
+      "feed_url": "https://www.nesto.ca/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://www.nesto.ca/about-us/",
       "feed_url": "https://www.nesto.ca/fr/about-us/feed/",
       "title": "",
@@ -12,17 +33,10 @@
       "source": "https://www.nesto.ca/advice/",
       "feed_url": "https://www.nesto.ca/fr/conseils/feed/",
       "title": "",
-      "saved": 2,
+      "saved": 0,
       "method": "discovered"
-    },
-    {
-      "source": "https://www.nesto.ca/feed/",
-      "feed_url": "https://www.nesto.ca/feed/",
-      "title": "",
-      "saved": 2,
-      "method": "feed"
     }
   ],
-  "post_count": 4,
-  "fetched": "2026-08-01T15:49:00Z"
+  "post_count": 18,
+  "fetched": "2026-08-06T14:08:46Z"
 }
