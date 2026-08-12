@@ -54,6 +54,11 @@ modified: '2026-07-26'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: Releases
+  url: https://github.com/nestoca/joy/releases
+- type: License
+  name: MIT
+  url: https://github.com/nestoca/joy/blob/master/LICENSE
 - type: VulnerabilityDisclosure
   url: security/nesto-vulnerability-disclosure.yml
 - type: DomainSecurity
