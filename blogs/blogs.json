@@ -12,14 +12,14 @@
       "source": "https://www.nesto.ca/fr/conseils/feed/",
       "feed_url": "https://www.nesto.ca/fr/conseils/feed/",
       "title": "",
-      "saved": 0,
+      "saved": 8,
       "method": "feed"
     },
     {
       "source": "https://www.nesto.ca/feed/",
       "feed_url": "https://www.nesto.ca/feed/",
       "title": "",
-      "saved": 0,
+      "saved": 9,
       "method": "feed"
     },
     {
@@ -37,6 +37,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 18,
-  "fetched": "2026-08-06T14:08:46Z"
+  "post_count": 35,
+  "fetched": "2026-08-15T12:11:08Z"
 }
