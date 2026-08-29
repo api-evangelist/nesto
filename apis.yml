@@ -26,6 +26,19 @@ description: >-
   SOC 1 Type II, SOC 2 Type II and ISO 27001:2022 with a Vanta trust center — and its
   GitHub organization (nestoca) ships MIT-licensed developer-platform tooling such as
   the joy GitOps CLI, though no client SDK for any Nesto service.
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: commercial
   onboarding: partner-only
