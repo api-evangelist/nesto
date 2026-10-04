@@ -53,13 +53,12 @@ accessModel:
   method: observed
 image: https://www.nesto.ca/wp-content/themes/nesto-theme/assets/images/icons/favicon-192x192.png
 tags:
-- Real-Estate
+- Real Estate
 - Canada
 - Mortgage
 - Lending
 - PropTech
-- Mortgage Technology
-- Financial-Services
+- Financial Services
 - Underwriting
 - Loan Servicing
 tags_raw:
@@ -72,6 +71,8 @@ tags_raw:
 - Financial Services
 - Underwriting
 - Loan Servicing
+- Real-Estate
+- Financial-Services
 created: '2026-07-26'
 modified: '2026-07-26'
 specificationVersion: '0.23'
