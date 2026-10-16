@@ -2,13 +2,6 @@
   "repo": "nesto",
   "feeds": [
     {
-      "source": "https://www.nesto.ca/about-us/",
-      "feed_url": "https://www.nesto.ca/about-us/feed/",
-      "title": "",
-      "saved": 0,
-      "method": "discovered"
-    },
-    {
       "source": "https://www.nesto.ca/advice/",
       "feed_url": "https://www.nesto.ca/advice/feed/",
       "title": "",
@@ -18,6 +11,13 @@
     {
       "source": "https://www.nesto.ca/feed/",
       "feed_url": "https://www.nesto.ca/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://nestocloud.ca/feed/",
+      "feed_url": "https://nestocloud.ca/feed/",
       "title": "",
       "saved": 0,
       "method": "feed"
@@ -52,7 +52,7 @@
     }
   ],
   "post_count": 83,
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "feed_nature": "undetermined",
   "feed_nature_basis": null,
   "feed_nature_note": "Whether these posts are the vendor publishing or its support community, decided on the URL path grammar of the saved posts -- not the hostname, which carries both on Khoros, and not author diversity, which flags large vendor blogs as forums. 'undetermined' means undetermined."
