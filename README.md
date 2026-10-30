@@ -1,4 +1,4 @@
-# Nesto (nesto)
+# Nesto
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,99 +64,89 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Nesto Inc. is a Montreal-headquartered Canadian digital mortgage lender and mortgage technology provider, founded in 2018 and licensed across Canadian jurisdictions. It sits on the financing side of the residential real estate value chain rather than the listings side — originating, underwriting, and servicing mortgages direct-to-consumer at nesto.ca, and, following its 2024 acquisition of CMLS Group, administering roughly CA$73 billion in residential and commercial mortgage assets. Its Nesto Cloud business (nestocloud.ca) sells the same origination, underwriting, and servicing platform to banks, credit unions, and commercial lenders as SaaS or fully outsourced BPO, and advertises "seamless API integrations with your existing systems and third-party providers" alongside a Maestro AI underwriting engine. That API surface is not publicly documented: there is no developer portal, no published reference, no OpenAPI or other machine-readable contract, and no self-serve signup. Access is a commercial engagement negotiated with the Nesto Cloud team. As a mortgage lender Nesto sits outside the listings syndication layer entirely — no RESO Web API or Data Dictionary certification, no RESO UPI usage, and no CREA Data Distribution Facility participation is published or discoverable. The company's only machine-readable public artifact is a security.txt whose disclosure scope explicitly names "Web applications, APIs, and customer-facing services", confirming APIs exist while none are documented for outside developers.
+Nesto Inc. is a Montreal-headquartered Canadian digital mortgage lender and mortgage technology provider, founded in 2018 and licensed across Canadian jurisdictions. It sits on the financing side of the residential real estate value chain rather than the listings side — originating, underwriting, and servicing mortgages direct-to-consumer at nesto.ca, and, following its 2024 acquisition of CMLS Group, administering roughly CA$73 billion in residential and commercial mortgage assets. Its Nesto Cloud business (nestocloud.ca) sells the same origination, underwriting, and servicing platform to banks, credit unions, and commercial lenders as SaaS or fully outsourced BPO, and advertises "seamless API integrations with your existing systems and third-party providers" alongside a Maestro AI underwriting engine. That API surface is not publicly documented: there is no developer portal, no published reference, no OpenAPI or other machine-readable contract, and no self-serve signup. Access is a commercial engagement negotiated with the Nesto Cloud team. As a mortgage lender Nesto sits outside the listings syndication layer entirely — no RESO Web API or Data Dictionary certification, no RESO UPI usage, and no CREA Data Distribution Facility participation is published or discoverable. The company's only machine-readable public artifact is a security.txt whose disclosure scope explicitly names "Web applications, APIs, and customer-facing services", confirming APIs exist while none are documented for outside developers. Its compliance posture is, by contrast, published and audited — SOC 1 Type II, SOC 2 Type II and ISO 27001:2022 with a Vanta trust center — and its GitHub organization (nestoca) ships MIT-licensed developer-platform tooling such as the joy GitOps CLI, though no client SDK for any Nesto service.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/nesto/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/nesto/refs/heads/main/apis.yml)
+**Areas:** Real Estate · Canada · Mortgage · Lending · PropTech · Financial Services · Underwriting · Loan Servicing
 
-## Tags
+## Nesto on APIs.io
 
-- Real Estate
-- Canada
-- Mortgage
-- Lending
-- PropTech
-- Mortgage Technology
-- Financial Services
-- Underwriting
-- Loan Servicing
+Everything profiled for Nesto is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nesto/](https://apis.io/providers/nesto/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-26
-- **Modified:** 2026-07-26
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (3)
 
-No publicly documented APIs. Nesto Cloud markets API integration as a platform capability but publishes no developer portal, no API reference, and no machine-readable contract. See [review.yml](review.yml) for every URL probed and its HTTP status.
+Authentication, trust centre, and vulnerability disclosure.
 
-## RESO Posture
+- [Nesto Domain Security](https://apis.io/security/nesto/nesto-domain-security/)
+- [Nesto Trust Center](https://apis.io/security/nesto/nesto-trust-center/)
+- [Nesto Vulnerability Disclosure](https://apis.io/security/nesto/nesto-vulnerability-disclosure/)
 
-**Certified:** No. **Posture:** no RESO reference found; mortgage lender outside the listings layer.
+## Where to find this API
 
-No RESO Web API certification, no RESO Data Dictionary certification, no version claim, no RESO certification directory listing, and no Universal Property Identifier (UPI) usage was discoverable across nesto.ca, nestocloud.ca, nestogroup.ca, or the open web. An OData `$metadata` probe against `api.nesto.ca` returned 404. Nesto is a mortgage lender and lending-platform vendor, not an MLS, board, listings portal, or IDX/VOW consumer; in Canada listings flow through CREA's single national Data Distribution Facility, and Nesto publishes no participation in it. RESO's absence here is structural, not a publication gap.
-
-## Access Gate
-
-**Gate:** `partner-only`.
-
-There is no path for an unaffiliated developer. Nesto Cloud is sold as an enterprise SaaS or fully outsourced BPO engagement to financial institutions, credit unions, and commercial lenders. Reaching any API requires negotiating a commercial contract — the published entry points are a "book a demo" form, `info@nestocloud.ca`, and 1.866.297.7407. No developer agreement, sandbox terms, rate card, or self-serve signup exists. `app.nesto.ca` is the consumer borrower login, not a developer console.
-
-## Open Data
-
-None. Nesto publishes no open dataset; rate tables are web pages, not a data product.
-
-## Auth Model
-
-Not published. `https://nesto.ca/.well-known/openid-configuration` returned 404. Nesto Cloud markets SOC 2 Type II compliance and a security-first architecture for Canadian regulatory requirements but documents no authentication scheme for any API.
-
-## Webhooks, Events, SDKs, Postman
-
-None published — the absence is itself the finding for a vendor selling an API-integrated lending platform.
-
-## Security and Compliance
-
-Published and third-party audited, in sharp contrast to the API surface. `https://www.nesto.ca/security/` names **SOC 1 Type II**, **SOC 2 Type II**, and **ISO 27001:2022**, with TLS 1.2+ in transit, AES-256 at rest, static analysis, manual code review, and yearly penetration testing on Google Cloud infrastructure. A Vanta trust center is live at `app.vanta.com/nesto.ca/trust/edzpx9i0szdy5sgukfq0w`. Vulnerability reports go to `security@nesto.ca`; there is no bug bounty — "we do not offer compensation for vulnerability disclosures." The `security.txt` is real and hand-written but carries no RFC 9116 `Expires:` field. DNSSEC is signed and DMARC is `p=reject` on nesto.ca; no CAA records exist on any domain.
-
-## Open Source
-
-Nesto's GitHub organization, [`nestoca`](https://github.com/nestoca), has 19 actively maintained public repositories — all internal developer-platform tooling under MIT, none of it an API client. The flagship is [`joy`](https://github.com/nestoca/joy), a GitOps CLI for Kubernetes deployments and promotions (v0.97.0, installable via `brew install nestoca/public/joy`), alongside `joy-operator`, `joy-generator`, `jen-cli` (microservice scaffolding), `jac`, `canonyze`, and `public-actions`. Every repo was searched for OpenAPI, AsyncAPI, `.proto`, GraphQL, `AGENTS.md`, and `llms.txt` — zero hits. Catalogued in [packages/](packages/nesto-packages.yml) and [cli/](cli/nesto-cli.yml); deliberately **not** wired as `SDKs` or `CLI`, because neither can call a Nesto service.
-
-## Artifacts
-
-- [well-known/](well-known/nesto-well-known.yml) — discovery index across five hosts; raw [security.txt](well-known/nesto-security.txt) and [PGP key](well-known/nesto-pgp-key.txt)
-- [security/](security/) — [domain security](security/nesto-domain-security.yml), [trust center](security/nesto-trust-center.yml), [vulnerability disclosure](security/nesto-vulnerability-disclosure.yml)
-- [conformance/](conformance/nesto-conformance.yml) — standards conformance, including the API-shaped standards asserted false on probed evidence
-- [lifecycle/](lifecycle/nesto-lifecycle.yml) — evidence of absence: no versioning, deprecation, SLA, status page, or changelog
-- [packages/](packages/nesto-packages.yml) and [cli/](cli/nesto-cli.yml) — first-party open source
-- [llms/](llms/nesto-llms.txt) — generated llms.txt
-
-No `openapi/`, `asyncapi/`, `graphql/`, `mcp/`, `skills/`, `scopes/`, `authentication/`, `errors/`, `conventions/`, `sandbox/`, or `arazzo/` directory exists. Each would require inventing an interface Nesto does not publish.
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.nesto.ca/)
-- [Website — Nesto Cloud](https://nestocloud.ca/)
-- [Website — Nesto Group](https://nestogroup.ca/)
-- [About](https://www.nesto.ca/about-us/)
-- [Blog](https://www.nesto.ca/advice/)
-- [Blog RSS](https://www.nesto.ca/feed/)
-- [Blog RSS — Nesto Cloud](https://nestocloud.ca/feed/)
-- [Security](https://www.nesto.ca/security/)
-- [security.txt](well-known/nesto-security.txt)
-- [Trust Center (Vanta)](https://app.vanta.com/nesto.ca/trust/edzpx9i0szdy5sgukfq0w)
-- [Compliance — SOC 1/SOC 2/ISO 27001](https://www.nesto.ca/security/)
-- [GitHub Organization](https://github.com/nestoca)
-- [Terms of Services](https://www.nesto.ca/terms-of-services/)
-- [Privacy Policy](https://www.nesto.ca/privacy-policy/)
-- [Privacy Policy — Nesto Cloud](https://nestocloud.ca/privacy-policy/)
 - [Support](https://www.nesto.ca/contact/)
-- [Support — Nesto Cloud](https://nestocloud.ca/contact/)
-- [FAQ](https://www.nesto.ca/faq/)
-- [Careers](https://www.nesto.ca/careers/)
-- [Login](https://app.nesto.ca/)
-- [Affiliate program](https://www.nesto.ca/affiliate-program/)
-- [Trusted partners](https://www.nesto.ca/financial-advisor/trusted-partners/)
+- [Blog](https://www.nesto.ca/advice/)
+- [Security](https://www.nesto.ca/security/)
+- [Compliance](https://www.nesto.ca/security/)
+- [Trust centre](https://app.vanta.com/nesto.ca/trust/edzpx9i0szdy5sgukfq0w)
+- [Terms of service](https://www.nesto.ca/terms-of-services/)
+- [Privacy policy](https://www.nesto.ca/privacy-policy/)
+- [GitHub](https://github.com/nestoca)
 
-## Maintainers
+## API Evangelist rating
 
-- Kin Lane — kin@apievangelist.com
+**Kin Score 23.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 31.6 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 43.4 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.3** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nesto/](https://apis.io/providers/nesto/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Nesto: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nesto/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
